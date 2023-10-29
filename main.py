@@ -41,18 +41,16 @@ def getFreeBooks():
 def addBook(book_id, book_name):
     query = "INSERT INTO library_records(book_id,book_name,student_id) VALUES(" + \
         book_id+",'"+book_name+"',null)"
-    # try:
-    #     execute_query(query)
-    #     print("Book Added")
-    # except:
-    #     print("Error occured")
-    execute_query(query)
+    try:
+        execute_query(query)
+        print("Book Added")
+    except:
+        print("Error occured")
 
 
 def assignBook(book_id, student_id):
     # Check if book is assigned
-    query = "UPDATE library_records SET student_id = " + student_id + \
-        "WHERE book_id = "+book_id+" AND student_id IS NULL"
+    query = f"UPDATE library_records SET student_id = {student_id} WHERE book_id = {book_id} AND student_id IS null"
     try:
         execute_query(query)
         print("Book Assigned")
@@ -110,7 +108,8 @@ if __name__ == "__main__":
     conn = mysql.connector.connect(
         host=host,
         user=user,
-        password=password
+        password=password,
+        autocommit=True
     )
     cursor = conn.cursor()
     start_DB_and_Table()
