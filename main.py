@@ -18,7 +18,10 @@ def getAllBooks():
 def getName(book_id):
     query = "SELECT student_id FROM library_records WHERE book_id = " + book_id
     result = execute_query(query)
-    print(result[0][0])
+    try:
+        print(result[0][0])
+    except:
+        print("No book found")
 
 
 def getAssignedBooks():
@@ -37,12 +40,13 @@ def getFreeBooks():
 
 def addBook(book_id, book_name):
     query = "INSERT INTO library_records(book_id,book_name,student_id) VALUES(" + \
-        book_id+",\""+book_name+"\",NULL)"
-    try:
-        execute_query(query)
-        print("Book Added")
-    except:
-        print("Error occured")
+        book_id+",'"+book_name+"',null)"
+    # try:
+    #     execute_query(query)
+    #     print("Book Added")
+    # except:
+    #     print("Error occured")
+    execute_query(query)
 
 
 def assignBook(book_id, student_id):
