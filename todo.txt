@@ -1,0 +1,12 @@
+Task --> Working
+
+Add New Book --> Python NOT SQL
+Assign Book --> Python SQL
+Get Name of Student of Book assigned --> Python SQL
+Free Book --> Python SQL
+All Books --> Python SQL
+All Assigned Books --> Python SQL
+All Free Books --> Python SQL
+Get Books By Student ID -> Python SQL
+Delete Book --> Python SQL
+Build menu-driven program --> Python SQL
